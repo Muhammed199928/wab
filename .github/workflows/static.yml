@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Search Engine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .video-card {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Video Search Engine</h1>
+    <div class="search-container">
+    
+        <input type="text" id="searchBox" placeholder="Search by tag..." onkeyup="filterVideos()">
+    </div>
+    <div class="video-container" id="videoContainer">
+    
+        <!-- Sample videos with tags -->
+
+        
+        
+        
+        
+        
+        
+        <div class="video-card" data-tags="nature wildlife">
+            <iframe width="300" height="180" src="https://dooodster.com/e/st4taaf6o6r1" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+                
+            <p>Video 2: Wildlife Documentary</p>
+            <p>Tags: nature, wildlife</p>
+       
+       
+       
+       
+       
+       
+       
+       
+       </div>
+        
+    </div>
+
+    <script>
+        function filterVideos() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const videos = document.querySelectorAll('.video-card');
+
+            videos.forEach(video => {
+                const tags = video.getAttribute('data-tags').toLowerCase();
+                if (tags.includes(searchTerm)) {
+                    video.style.display = 'block';
+                } else {
+                    video.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
